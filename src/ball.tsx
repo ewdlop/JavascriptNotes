@@ -1,13 +1,7 @@
 import * as THREE from "three";
-import { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 
-const baubleMaterial = new THREE.MeshLambertMaterial({
-  color: "#c0a090",
-  emissive: "red"
-});
-
-export const App = () => (
+const App = () => (
   <Canvas
     shadows
     dpr={1.5}
@@ -28,3 +22,5 @@ export const App = () => (
     <directionalLight position={[0, -15, -0]} intensity={4} color="red" />
   </Canvas>
 );
+
+export default App;
