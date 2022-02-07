@@ -3,7 +3,11 @@ import React, { useRef, useMemo } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import "./styles.css";
 
-export default function Particles({ count, mouse }) {
+interface Something {
+  count: number;
+}
+
+const Particles = ({ count, mouse }: Something) => {
   const mesh = useRef<THREE.InstancedMesh>(null!);
   const light = useRef<THREE.PointLight>(null!);
   const { size, viewport } = useThree();
@@ -68,10 +72,12 @@ export default function Particles({ count, mouse }) {
   return (
     <>
       <pointLight ref={light} distance={40} intensity={8} color="lightblue" />
-      <instancedMesh ref={mesh} args={[null, null, count]}>
+      <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
         <dodecahedronGeometry args={[0.2, 0]} />
         <meshPhongMaterial color="#050505" />
       </instancedMesh>
     </>
   );
-}
+};
+
+export { Particles };
