@@ -1,13 +1,14 @@
 import * as THREE from "three";
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, MutableRefObject } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import "./styles.css";
 
-interface Something {
+interface Particle {
   count: number;
+  mouse: MutableRefObject<number[]>;
 }
 
-const Particles = ({ count, mouse }: Something) => {
+const Particles = ({ count, mouse }: Particle) => {
   const mesh = useRef<THREE.InstancedMesh>(null!);
   const light = useRef<THREE.PointLight>(null!);
   const { size, viewport } = useThree();

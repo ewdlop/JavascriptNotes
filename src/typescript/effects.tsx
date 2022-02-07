@@ -18,7 +18,7 @@ extend({
 });
 
 const Effects = () => {
-  const composer = useRef<EffectComposer>();
+  const composer = useRef<EffectComposer>(null!);
   const { scene, gl, size, camera } = useThree();
   const aspect = useMemo(() => new THREE.Vector2(512, 512), []);
   useEffect(() => void composer.current.setSize(size.width, size.height), [

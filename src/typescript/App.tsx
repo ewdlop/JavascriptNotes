@@ -5,8 +5,7 @@ import React, {
   useEffect,
   useRef,
   Dispatch,
-  SetStateAction,
-  MouseEvent
+  SetStateAction
 } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import Text from "./text";
@@ -14,9 +13,12 @@ import Effects from "./effects";
 import Sparks from "./sparks";
 import Particles from "./particles";
 import "./styles.css";
-import { MOUSE } from "three";
 
-const Number = ({ hover }) => {
+interface Mouse {
+  hover: Dispatch<SetStateAction<boolean>>;
+}
+
+const Number = ({ hover }: Mouse) => {
   const ref = useRef();
   useFrame((state) => {
     if (ref.current) {
